@@ -1,15 +1,17 @@
 <script>
-import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
-import axios from 'axios';
-import { store } from './store.js';
+
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+import AppFooter from "./components/AppFooter.vue";
+import axios from "axios";
+import { store } from "./Store";
 
 export default {
     data() {
         return {
+          store,
           // myurl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
-          // cards: [ ],
-          store
+          // cards: [],
         };
     },
     components: {
@@ -26,10 +28,9 @@ export default {
             .then((response) => {
                 // console.log(response.data);
                 // this.cards.push(response.data);
-                this.store.cards = response.data;
+                this.store.cards = response.data.data;
                 console.log(this.store.cards);
             });
-        console.log(this.store)
     }
 }
 </script>
@@ -37,9 +38,9 @@ export default {
 <template>
   <div>
 
-    <AppHeader/>
-    <AppMain /> 
-    <!-- :allcards="cards" -->
+    <AppHeader />
+    <AppMain />
+    <!-- <AppFooter /> -->
   </div>
 </template>
 
