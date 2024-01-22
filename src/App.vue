@@ -2,11 +2,13 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
+import axios from 'axios';
 
 export default {
     data() {
         return {
-
+          myurl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+          cards: [ ],
         };
     },
     components: {
@@ -16,18 +18,25 @@ export default {
     },  
     methods: {
 
+    },
+    created() {
+        axios
+            .get(this.myurl)
+            .then((response) => {
+                // console.log(response.data);
+                // this.cards.push(response.data);
+                this.cards = response.data;
+                console.log(this.cards);
+            });
     }
 }
 </script>
 
 <template>
   <div>
-    <h1>
-        Mia App
-    </h1>
 
     <AppHeader />
-    <AppMain />
+    <AppMain :allcards="cards" />
     <AppFooter />
   </div>
 </template>
