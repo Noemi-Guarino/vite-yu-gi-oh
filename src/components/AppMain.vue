@@ -22,9 +22,9 @@ export default {
 
 <template>
     <main>
-      <div class="container text-center">
-        <div class="row text-center">
-          <div class="col-3" v-for="(card,index) in store.cards">
+      <div class="container p-4 mb-3">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-2 mb-2" v-for="(card,index) in store.cards">
             <Appsinglecard :card="card"/>
             <!-- <div class="singlecard mb-4">
               <div class="container_img  mb-2">
@@ -42,12 +42,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-  .singlecard{
-    border: 2px solid blue;
-  }
 
-  .container_img{
-    height: 200px;
-    width: 200px;
-  }
 </style>
