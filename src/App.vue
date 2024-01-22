@@ -40,7 +40,7 @@ export default {
 
     <AppHeader />
     <AppMain />
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
 
