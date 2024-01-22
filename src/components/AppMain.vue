@@ -1,4 +1,5 @@
 <script>
+import Appsinglecard from './Appsinglecard.vue';
 export default {
     data() {
         return {
@@ -7,6 +8,9 @@ export default {
     },
     methods: {
 
+    }, 
+    components:{
+      Appsinglecard
     },
     props: {
       allcards: Object
@@ -19,7 +23,8 @@ export default {
       <div class="container text-center">
         <div class="row text-center">
           <div class="col-3" v-for="(card,index) in allcards.data">
-            <div class="singlecard mb-4">
+            <Appsinglecard :card="card"/>
+            <!-- <div class="singlecard mb-4">
               <div class="container_img  mb-2">
                 <img :src="card.card_images[0].image_url" :alt="card.name" srcset="">
               </div>
@@ -27,7 +32,7 @@ export default {
                 <h3>{{ card.name }}</h3>
                 <h5>{{ card.archetype }}</h5>
               </div>
-            </div>
+            </div> -->
           </div>    
         </div>
       </div>
