@@ -1,9 +1,11 @@
 <script>
 import Appsinglecard from './Appsinglecard.vue';
+import { store } from '../Store'
+
 export default {
     data() {
         return {
-
+          store
         };
     },
     methods: {
@@ -12,9 +14,9 @@ export default {
     components:{
       Appsinglecard
     },
-    props: {
-      allcards: Object
-    }
+    // props: {
+    //   allcards: Object
+    // }
 }
 </script>
 
@@ -22,7 +24,7 @@ export default {
     <main>
       <div class="container text-center">
         <div class="row text-center">
-          <div class="col-3" v-for="(card,index) in allcards.data">
+          <div class="col-3" v-for="(card,index) in store.allcards.data">
             <Appsinglecard :card="card"/>
             <!-- <div class="singlecard mb-4">
               <div class="container_img  mb-2">
