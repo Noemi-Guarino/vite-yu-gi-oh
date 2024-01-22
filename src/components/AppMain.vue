@@ -24,7 +24,7 @@ export default {
     <main>
       <div class="container text-center">
         <div class="row text-center">
-          <div class="col-3" v-for="(card,index) in store.allcards.data">
+          <div class="col-3" v-for="(card,index) in store.cards">
             <Appsinglecard :card="card"/>
             <!-- <div class="singlecard mb-4">
               <div class="container_img  mb-2">
