@@ -31,14 +31,15 @@ export default {
                 this.store.cards = response.data.data;
                 console.log(this.store.cards);
             });
-    }
+    },
+    
 }
 </script>
 
 <template>
   <div>
 
-    <AppHeader />
+    <AppHeader/>
     <AppMain />
     <AppFooter />
   </div>

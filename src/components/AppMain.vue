@@ -1,6 +1,7 @@
 <script>
 import Appsinglecard from './Appsinglecard.vue';
-import { store } from '../Store'
+import axios from 'axios';
+import { store } from '../store';
 
 export default {
     data() {
@@ -9,7 +10,16 @@ export default {
         };
     },
     methods: {
-
+      filtercards(){
+        axios 
+          .get(this.store.myurl+"&archetype="+this.store.searcharchetype)
+          .then((response) => {
+              // console.log(response.data);
+              // this.cards.push(response.data);
+              this.store.cards = response.data.data;
+              console.log(this.store.cards);
+          });
+      }
     }, 
     components:{
       Appsinglecard
@@ -22,6 +32,22 @@ export default {
 
 <template>
     <main>
+      <div class="container p-4">
+        <div class="row p-4">
+          <div class="col">
+            <form>
+              <select v-model="store.searcharchetype" @change="filtercards" name="" id="">
+                <option value="Select archetype"> Select archetype </option>
+                <option value="Alien"> Alien </option>
+                <option value="Archfiend"> Archfiend </option>
+                <option value="Noble Knight"> Noble Knight </option>
+                <option value="Infernoble Arms"> Infernoble Arms </option>
+                <option value="Melodious"> Melodious </option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
       <div class="container p-4 mb-3">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-2 mb-2" v-for="(card,index) in store.cards">

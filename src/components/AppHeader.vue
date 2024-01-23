@@ -14,9 +14,9 @@ export default {
 <template>
   <div>
     <header>
-      <div class="bg-page">
+      <div class="bg-page m-4">
         <div class="container text-center">
-          <div class="header_container">
+          <div class="header_container mb-4">
             <div class="img_conteiner">
               <img class="" src="../img/Yugioh_anime_logo.webp" alt="">
             </div>    
